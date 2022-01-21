@@ -1,1 +1,0 @@
-properties([pipelineTriggers([githubPush()])]) pipeline{ agent { node { label 'slave' } } stages{ stage("Git Checkout"){ steps{ git branch: 'main', url: 'https://github.com/ashokreddypython/diskspace.git' } } stage('Running Diskspace Script'){ steps{ sh '''sh diskfree.sh''' } } } }
